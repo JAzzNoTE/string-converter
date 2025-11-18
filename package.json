@@ -1,0 +1,22 @@
+{
+  "name": "string-converter",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {},
+  "author": {
+    "name": "JAzzNoTE",
+    "url": "https://github.com/JAzzNoTE/string-converter"
+  },
+  "license": "",
+  "homepage": "",
+  "repository": {},
+  "keywords": [],
+  "scripts": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 8"
+  }
+}
