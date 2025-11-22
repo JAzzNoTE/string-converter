@@ -28,6 +28,20 @@ function removeSpace(str) {
 }
 
 /**
+ * Removes all occurrences of a specified character from a string.
+ * @param {string} str The input string from which the character will be removed.
+ * @param {string} character The character to remove from the string.
+ * @returns {string} The string with all occurrences of the specified character removed.
+ */
+function removeCharacter(str, character) {
+  let strNew = str;
+  if (_isString(str) && _isString(character)) {
+    while (strNew.indexOf(character) >= 0) { strNew = strNew.replace(character, ''); }
+  }
+  return strNew;
+}
+
+/**
  * Converts a string ('true', 'false') or a number to a boolean.
  * @param {string|number} str The input string or number to convert. Case-insensitive for strings.
  * @returns {boolean|string} Returns `true` if the string is 'true' or the number is > 0. Returns `false` if the string is 'false' or the number is <= 0. Returns the original string if it's not a boolean representation.
@@ -125,21 +139,8 @@ function _formatNegativeNumberStyle(str) {
 }
 
 /**
- * Removes all occurrences of a specified character from a string.
- * @param {string} str The input string from which the character will be removed.
- * @param {string} character The character to remove from the string.
- * @returns {string} The string with all occurrences of the specified character removed.
- */
-function removeCharacter(str, character) {
-  let strNew = str;
-  if (_isString(str) && _isString(character)) {
-    while (strNew.indexOf(character) >= 0) { strNew = strNew.replace(character, ''); }
-  }
-  return strNew;
-}
-
-/**
- * Converts an alphabetic string (like a spreadsheet column identifier) to a zero-based serial number.
+ * Converts an alphabetic string (like a spreadsheet column identifier) to a zero-based serial number
+ * which will be used in the order of Excel column names.
  * For example, 'A' or 'a' will be converted to 0, 'B' or 'b' to 1, 'Z' to 25, 'AA' to 26, etc.
  * @param {string} str The input alphabetic string to convert. Case-insensitive.
  * @returns {number} The calculated zero-based serial number.
@@ -182,16 +183,3 @@ module.exports = {
   string2Number,
   en2sn, sn2en
 };
-// TODO: 嘗試生成測試檔
-function testConvertCharacter2SN() {
-  console.log('a', en2sn('a')); //0
-  console.log('j', en2sn('j')); //9
-  console.log('z', en2sn('z')); //25
-  console.log('AA', en2sn('AA')); //26
-  console.log('az', en2sn('az')); //51
-  console.log('BA', en2sn('BA')); //52
-  console.log('Bk', en2sn('Bk')); //62
-  console.log('zz', en2sn('zz')); //701
-  console.log('AAA', en2sn('AAA')); //702
-}
-//testConvertCharacter2SN();
